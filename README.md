@@ -2,7 +2,7 @@
 
 ### **Deployed on Heroku**
 
-
+https://app-note-taker-express.herokuapp.com/
 
 ---
 

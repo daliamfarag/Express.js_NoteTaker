@@ -1,32 +1,25 @@
+// dependencies
 const express = require('express');
 const path = require('path');
-const fs = require('fs');
-const exp = require('constants');
 
+// load express.js
 const app = express();
 
-const PORT = 3001;
-
-app.use(express.urlencoded({extended:true}));
+// mount middleware for json
 app.use(express.json());
+
+// mount middleware for static files
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get("/", function(req, res){
-    res.sendFile(path.join(__dirname, './public/index.html'))
-})
+// mount middleware for api router
+app.use('/api/notes', require('./middleware/api'));
 
-app.get("/notes", function(req, res){
-    res.sendFile(path.join(__dirname, './public/notes.html'))
-})
+// mount middleware for html router
+app.use('/', require('./middleware/html'));
 
-app.get("/api/notes", function(req, res){
-    res.sendFile(path.join(__dirname, '/db/db.json'))
-})
-
-app.post("/api/notes", function(req, res) {
-    
-})
+// start server
+const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
-    console.log(`App connecting to PORT: ${PORT}`);
-})
+    console.log(`Server listening at port ${PORT}....`);
+});

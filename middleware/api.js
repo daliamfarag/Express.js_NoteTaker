@@ -1,5 +1,5 @@
 const express = require('express');
-const dfid = require('dfid');
+const uuid = require('uuid');
 const router = express.Router();
 
 let data = require('../db/db.json');
@@ -13,7 +13,7 @@ router.post('/', (req, res) => {
         res.status(400).json({msg: 'Need non-empty title and text input.'})
     } else {
         const newJSON = {
-            id: dfid.v4(),
+            id: uuid.v4(),
             title: newTitle,
             text: newText
         };

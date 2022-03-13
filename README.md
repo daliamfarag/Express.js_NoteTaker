@@ -46,8 +46,6 @@ There are three main features of this application:
 
 :crystal_ball: This application is really intuitive and easy to use, once the user enters a title and some text body, a `save` button will pop on the top right corner so the user can save this note. Once saved, that note is displayed on the left.
 
-<img src="./assets/images/Express_Note_Taker_Test1.png">
-<img src="./assets/images/Express_Note_Taker_Test2.png">
 
 [Back to the Top](#note-taker)
 
